@@ -8,28 +8,96 @@ namespace HotBloodr
 {
     public static class EditorGUIHelper
     {
-        public static int TitleIntField(string title, int number, params GUILayoutOption[] options)
+        public static int TitleIntField(string title, int number, bool isHorizontal = false, params GUILayoutOption[] options)
         {
-            GUIHelper.FixedLabel(title);
-            return EditorGUILayout.IntField(number, options);
+            var returnValue = 0;
+            TitleField(title, isHorizontal, () => { returnValue = EditorGUILayout.IntField(number, options); });
+            return returnValue;
         }
 
-        public static float TitleFloatField(string title, float number, params GUILayoutOption[] options)
+        public static int TitleIntField(string title, int fontSize, Color color, int number, bool isHorizontal = false,
+            params GUILayoutOption[] options)
         {
-            GUIHelper.FixedLabel(title);
-            return EditorGUILayout.FloatField(number, options);
+            var returnValue = 0;
+            TitleField(title, fontSize, color, isHorizontal, () => { returnValue = EditorGUILayout.IntField(number, options); });
+            return returnValue;
         }
 
-        public static string TitleTextField(string title, string text, params GUILayoutOption[] options)
+        public static float TitleFloatField(string title, int fontSize, Color color, float number, bool isHorizontal = false,
+            params GUILayoutOption[] options)
         {
-            GUIHelper.FixedLabel(title);
-            return EditorGUILayout.TextField(text, options);
+            var returnValue = 0f;
+            TitleField(title, fontSize, color, isHorizontal, () => { returnValue = EditorGUILayout.FloatField(number, options); });
+            return returnValue;
         }
 
-        public static bool TitleToggle(string title, bool flag, params GUILayoutOption[] options)
+        public static float TitleFloatField(string title, float number, bool isHorizontal = false, params GUILayoutOption[] options)
         {
+            var returnValue = 0f;
+            TitleField(title, isHorizontal, () => { returnValue = EditorGUILayout.FloatField(number, options); });
+            return returnValue;
+        }
+
+        public static string TitleTextField(string title, int fontSize, Color color, string text, bool isHorizontal = false,
+            params GUILayoutOption[] options)
+        {
+            var returnValue = string.Empty;
+            TitleField(title, fontSize, color, isHorizontal, () => { returnValue = EditorGUILayout.TextField(text, options); });
+            return returnValue;
+        }
+
+        public static string TitleTextField(string title, string text, bool isHorizontal = false, params GUILayoutOption[] options)
+        {
+            var returnValue = string.Empty;
+            TitleField(title, isHorizontal, () => { returnValue = EditorGUILayout.TextField(text, options); });
+            return returnValue;
+        }
+
+        public static bool TitleToggle(string title, int fontSize, Color color, bool flag, bool isHorizontal = false,
+            params GUILayoutOption[] options)
+        {
+            var returnValue = false;
+            TitleField(title, fontSize, color, isHorizontal, () => { returnValue = EditorGUILayout.Toggle(flag, options); });
+            return returnValue;
+        }
+
+        public static bool TitleToggle(string title, bool flag, bool isHorizontal = false, params GUILayoutOption[] options)
+        {
+            var returnValue = false;
+            TitleField(title, isHorizontal, () => { returnValue = EditorGUILayout.Toggle(flag, options); });
+            return returnValue;
+        }
+
+        private static void TitleField(string title, bool isHorizontal, Action callback)
+        {
+            if (isHorizontal)
+            {
+                GUILayout.BeginHorizontal();
+            }
+
             GUIHelper.FixedLabel(title);
-            return EditorGUILayout.Toggle(flag, options);
+            callback();
+
+            if (isHorizontal)
+            {
+                GUILayout.EndHorizontal();
+            }
+        }
+
+        private static void TitleField(string title, int fontSize, Color color, bool isHorizontal, Action callback)
+        {
+            if (isHorizontal)
+            {
+                GUILayout.BeginHorizontal();
+            }
+
+            GUIHelper.FixedLabel(title, fontSize, color);
+            callback();
+
+            if (isHorizontal)
+            {
+                GUILayout.EndHorizontal();
+            }
         }
 
         public static Enum EnumPopup(Enum type, int width, int height, int fontSize = 10)

@@ -5,6 +5,13 @@ namespace HotBloodr.Editor
 {
     public static class HotBloodrMenuItem
     {
+        [MenuItem("HotBloodr/Script Wizard")]
+        public static void OpenPrototyper()
+        {
+            var window = EditorWindow.GetWindow(typeof(ScriptWizardWindow));
+            window.titleContent = new GUIContent("ScriptWizard Window");
+        }
+
         [MenuItem("HotBloodr/Tools/PrefabSearcher")]
         public static void OpenPrefabSearcher()
         {

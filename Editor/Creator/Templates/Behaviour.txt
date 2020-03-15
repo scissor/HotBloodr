@@ -1,0 +1,11 @@
+using UnityEngine;
+
+namespace $NameSpace
+{
+    public class $ClassName : MonoBehaviour
+    {
+        $Fields
+
+        $Functions
+    }
+}
