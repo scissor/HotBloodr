@@ -1,25 +1,3 @@
-//
-// Copyright (C) 2019 Scissor Lee
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
-
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -33,6 +11,7 @@ namespace HotBloodr
             var width = GUI.skin.label.CalcSize(new GUIContent(text)).x;
             GUILayout.Label(text, GUILayout.Width(width));
         }
+
         public static void FixedLabel(string text, int fontSize, Color color)
         {
             var width = GUI.skin.label.CalcSize(new GUIContent(text)).x * ((float)fontSize / 10);
@@ -96,12 +75,14 @@ namespace HotBloodr
         {
             GUILayout.Box(string.Empty, GUILayout.ExpandWidth(true), GUILayout.Height(height));
         }
+
         public static void HorizontalSplitter(int height, int space)
         {
             GUILayout.Space(space);
             GUILayout.Box(string.Empty, GUILayout.ExpandWidth(true), GUILayout.Height(height));
             GUILayout.Space(space);
         }
+
         public static void HorizontalSplitter(string title, int height)
         {
             GUILayout.Label(title);
@@ -121,13 +102,16 @@ namespace HotBloodr
                 {
                     list.Insert(index + 1, item);
                 }
+
                 return true;
             }
+
             if (list.Any() && GUILayout.Button("-", GUILayout.Width(width)))
             {
                 list.Remove(list[index]);
                 return true;
             }
+
             GUI.backgroundColor = Color.white;
 
             return false;
@@ -146,8 +130,10 @@ namespace HotBloodr
                 {
                     list.Insert(index + 1, item);
                 }
+
                 return true;
             }
+
             GUI.backgroundColor = Color.white;
 
             return false;
