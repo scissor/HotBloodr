@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rootPath: Assets/Plugins/HotBloodr/
   m_scriptTemplatePath: Editor/Creator/Templates/
+  m_iconPath: Resources/Icon.png

@@ -23,20 +23,19 @@ namespace HotBloodr.Editor
 
         #region Abstract methods
 
-        protected abstract string Title
-        {
-            get;
-        }
+        protected abstract string Title { get; }
 
         protected abstract void OnWindowGUI();
 
-        protected virtual string IconPath
+        protected virtual string IconPath => HotBloodrSettings.I.IconPath;
+
+        protected virtual void OnInitialize()
         {
-            get { return "Assets/Plugins/HotBloodr/Editor/Images/Icon.png"; }
         }
 
-        protected virtual void OnInitialize() { }
-        protected virtual void OnWindowToolbar() { }
+        protected virtual void OnWindowToolbar()
+        {
+        }
 
         #endregion
 
