@@ -5,16 +5,6 @@ namespace HotBloodr.Editor
 {
     public static class HotBloodrMenuItem
     {
-        #region Create
-
-        [MenuItem("HotBloodr/Create/File Enum", false, 0)]
-        public static void OnClickEnum()
-        {
-            FileEnumCreator.OpenWindow();
-        }
-
-        #endregion
-
         [MenuItem("HotBloodr/Tools/PrefabSearcher")]
         public static void OpenPrefabSearcher()
         {
