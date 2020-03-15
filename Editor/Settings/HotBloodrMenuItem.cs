@@ -7,13 +7,6 @@ namespace HotBloodr.Editor
     {
         #region Create
 
-        [MenuItem("HotBloodr/Create/Singleton Asset", false, 0)]
-        private static void OpenSingletonAssetCreator()
-        {
-            var window = EditorWindow.GetWindow(typeof(SingletonAssetCreator));
-            window.titleContent = new GUIContent("Singleton Creator");
-        }
-
         [MenuItem("HotBloodr/Create/File Enum", false, 0)]
         public static void OnClickEnum()
         {
